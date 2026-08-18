@@ -1,5 +1,5 @@
 import React from "react";
-import { CATEGORY_EMOJIS } from "../constants/categoryEmojis";
+import { getCategoryEmoji, getCategoryDisplayName } from "../constants/categoryEmojis";
 import { COLORS } from "../constants/colors";
 
 interface CategoryData {
@@ -200,10 +200,10 @@ const CategoryBreakdown: React.FC<CategoryBreakdownProps> = ({
             >
               <div style={itemInfoStyle}>
                 <span style={itemIconStyle}>
-                  {CATEGORY_EMOJIS[category.category] || "📊"}
+                  {getCategoryEmoji(category.category)}
                 </span>
                 <div style={itemDetailsStyle}>
-                  <div style={itemNameStyle}>{category.category}</div>
+                  <div style={itemNameStyle}>{getCategoryDisplayName(category.category)}</div>
                   <div style={itemCountStyle}>
                     {category.count} transaction
                     {category.count !== 1 ? "s" : ""}
