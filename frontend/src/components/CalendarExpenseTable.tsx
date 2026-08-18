@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 import { Expense, ExpenseFormData } from "../types";
 import { formatCurrency, formatDate } from "../utils/expenseUtils";
-import { getCategoryEmoji } from "../constants/categoryEmojis";
+import { getCategoryEmoji, getCategoryDisplayName } from "../constants/categoryEmojis";
 import { COLORS } from "../constants/colors";
 import { Button, Modal, Pagination } from "../vibes";
 import { ExpenseForm } from "./ExpenseForm.tsx";
@@ -143,7 +143,7 @@ export function CalendarExpenseTable({
                   }}
                 >
                   <span>{getCategoryEmoji(expense.category)}</span>
-                  <span>{expense.category}</span>
+                  <span>{getCategoryDisplayName(expense.category)}</span>
                 </span>
               </td>
               <td style={{ ...tdStyle, textAlign: "left", fontWeight: 600 }}>
